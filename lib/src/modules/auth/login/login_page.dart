@@ -28,7 +28,7 @@ class LoginPage extends StatelessWidget {
                 duration: Duration(seconds: 4),
                 color: _controller.startedAnimation != null &&
                         _controller.startedAnimation
-                    ? DefaultColors.black.withOpacity(0.6)
+                    ? DefaultColors.transparent
                     : DefaultColors.black,
               );
             },
