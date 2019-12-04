@@ -24,7 +24,8 @@ class LoginPage extends StatelessWidget {
           Observer(
             builder: (_) {
               return AnimatedContainer(
-                duration: Duration(seconds: 6),
+                curve: Curves.easeIn,
+                duration: Duration(seconds: 4),
                 color: _controller.startedAnimation != null &&
                         _controller.startedAnimation
                     ? DefaultColors.black.withOpacity(0.6)
