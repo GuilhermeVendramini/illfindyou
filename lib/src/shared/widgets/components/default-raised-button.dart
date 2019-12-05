@@ -10,7 +10,7 @@ class DefaultRaisedButton extends StatelessWidget {
   DefaultRaisedButton({
     @required this.text,
     @required this.onPressed,
-    this.buttonWidth = 100.0,
+    this.buttonWidth = 150.0,
     this.buttonColor = Colors.white,
     this.textColor = Colors.black,
   });

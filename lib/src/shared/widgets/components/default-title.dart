@@ -4,7 +4,6 @@ import 'package:illfindyou/src/shared/colors/default_colors.dart';
 class DefaultTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[

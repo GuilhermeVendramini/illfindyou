@@ -15,6 +15,8 @@ class Strings {
 
   // Login
   static const String authLogin = "Login";
+  static const String authSign = "Sign";
+  static const String authGoogleSign = "Google sign";
 
   // Register
   static const String authRegister = "Register";

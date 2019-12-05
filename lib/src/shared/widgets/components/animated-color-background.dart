@@ -15,7 +15,7 @@ class AnimatedColorBackground extends StatelessWidget {
           curve: Curves.easeIn,
           duration: Duration(seconds: 4),
           color: _controller.startedAnimation != null &&
-              _controller.startedAnimation
+                  _controller.startedAnimation
               ? DefaultColors.transparent
               : DefaultColors.black,
         );

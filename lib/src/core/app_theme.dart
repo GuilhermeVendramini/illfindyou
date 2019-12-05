@@ -12,7 +12,7 @@ class AppTheme {
     buttonTheme: ButtonThemeData(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(0.0),
-        side: BorderSide(color: DefaultColors.white),
+        side: BorderSide(color: DefaultColors.white, width: 0.5),
       ),
       padding: EdgeInsets.all(12.0),
       buttonColor: DefaultColors.white,
