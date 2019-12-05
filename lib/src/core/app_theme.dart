@@ -6,6 +6,9 @@ class AppTheme {
   AppTheme._();
 
   static final ThemeData themeData = ThemeData(
+    appBarTheme: AppBarTheme(
+      color: DefaultColors.black,
+    ),
     buttonTheme: ButtonThemeData(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(0.0),

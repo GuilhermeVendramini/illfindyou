@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:illfindyou/src/modules/auth/register/register_module.dart';
 import 'package:illfindyou/src/shared/colors/default_colors.dart';
 import 'package:illfindyou/src/shared/i18n/en-US.dart';
 import 'package:illfindyou/src/shared/widgets/components/default-raised-button.dart';
@@ -26,7 +27,10 @@ class LoginRegisterBlock extends StatelessWidget {
             textColor: DefaultColors.white,
             buttonWidth: 150.0,
             onPressed: () {
-              print('done');
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => RegisterModule()),
+              );
             },
           ),
         ],
