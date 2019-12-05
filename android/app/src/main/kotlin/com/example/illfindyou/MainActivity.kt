@@ -1,4 +1,4 @@
-package com.example.illfindyou
+package vendramini.illfindyou
 
 import android.os.Bundle
 import io.flutter.app.FlutterActivity
