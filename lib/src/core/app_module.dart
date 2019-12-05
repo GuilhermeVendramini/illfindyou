@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'app_controller.dart';
-import 'app_widget.dart';
+import 'app_page.dart';
 
 class AppModule extends StatelessWidget {
   @override
@@ -11,7 +11,7 @@ class AppModule extends StatelessWidget {
       providers: [
         Provider<AppController>(create: (_) => AppController()),
       ],
-      child: AppWidget(),
+      child: AppPage(),
     );
   }
 }

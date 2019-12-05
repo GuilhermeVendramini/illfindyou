@@ -11,6 +11,11 @@ class Strings {
   // App
   static const String appTitle = "I'LL FIND YOU";
 
+  // Auth
+
   // Login
   static const String authLogin = "Login";
+
+  // Register
+  static const String authRegister = "Register";
 }

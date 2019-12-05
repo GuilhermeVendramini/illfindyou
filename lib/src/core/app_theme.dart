@@ -6,7 +6,15 @@ class AppTheme {
   AppTheme._();
 
   static final ThemeData themeData = ThemeData(
-    buttonColor: DefaultColors.primary,
+    buttonTheme: ButtonThemeData(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(0.0),
+        side: BorderSide(color: DefaultColors.white),
+      ),
+      padding: EdgeInsets.all(12.0),
+      buttonColor: DefaultColors.white,
+      textTheme: ButtonTextTheme.primary,
+    ),
     errorColor: DefaultColors.red,
     cursorColor: DefaultColors.primary,
     toggleableActiveColor: DefaultColors.primary,
