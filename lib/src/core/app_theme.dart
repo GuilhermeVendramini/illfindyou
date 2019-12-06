@@ -19,10 +19,10 @@ class AppTheme {
       textTheme: ButtonTextTheme.primary,
     ),
     errorColor: DefaultColors.red,
-    cursorColor: DefaultColors.primary,
-    toggleableActiveColor: DefaultColors.primary,
+    cursorColor: DefaultColors.white,
+    toggleableActiveColor: DefaultColors.white,
     brightness: Brightness.dark,
-    accentColor: DefaultColors.primary,
+    accentColor: DefaultColors.white,
     inputDecorationTheme: InputDecorationTheme(
       errorStyle: TextStyle(
         color: DefaultColors.red,

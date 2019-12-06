@@ -20,4 +20,14 @@ class Strings {
 
   // Register
   static const String authRegister = "Register";
+  static const String authEmail = "Email";
+  static const String authPassword = "Password";
+  static const String authConfirmPassword = "Confirm Password";
+  static const String authCreateAccount = "Create account";
+
+  // Validator
+  static const String valIsNotEmpty = "Can't be empty";
+  static const String valMinLength = "Can't be less than 8 caracteres";
+  static const String valPasswordNotConfirm = "Password don't match";
+  static const String valEmail = "Invalid email";
 }

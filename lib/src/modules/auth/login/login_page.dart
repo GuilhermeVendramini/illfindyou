@@ -3,6 +3,7 @@ import 'package:illfindyou/src/modules/home/home_module.dart';
 import 'package:illfindyou/src/shared/colors/default_colors.dart';
 import 'package:illfindyou/src/shared/i18n/en-US.dart';
 import 'package:illfindyou/src/shared/widgets/components/default-raised-button.dart';
+import 'package:illfindyou/src/shared/widgets/forms/login-form.dart';
 import 'package:provider/provider.dart';
 
 import 'login_controller.dart';
@@ -23,12 +24,7 @@ class LoginPage extends StatelessWidget {
             padding: EdgeInsets.all(20.0),
             child: Column(
               children: <Widget>[
-                DefaultRaisedButton(
-                  text: Strings.authSign,
-                  onPressed: () {
-                    print('Login');
-                  },
-                ),
+                LoginForm(),
                 Divider(
                   height: 40.0,
                 ),
