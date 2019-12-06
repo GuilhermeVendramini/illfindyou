@@ -6,6 +6,8 @@ class AppTheme {
   AppTheme._();
 
   static final ThemeData themeData = ThemeData(
+    dividerColor: DefaultColors.grey,
+    scaffoldBackgroundColor: DefaultColors.black,
     appBarTheme: AppBarTheme(
       color: DefaultColors.black,
     ),

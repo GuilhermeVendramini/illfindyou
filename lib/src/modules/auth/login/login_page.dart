@@ -3,6 +3,7 @@ import 'package:illfindyou/src/modules/home/home_module.dart';
 import 'package:illfindyou/src/shared/colors/default_colors.dart';
 import 'package:illfindyou/src/shared/i18n/en-US.dart';
 import 'package:illfindyou/src/shared/widgets/components/default-raised-button.dart';
+import 'package:illfindyou/src/shared/widgets/components/default-title.dart';
 import 'package:illfindyou/src/shared/widgets/forms/login-form.dart';
 import 'package:provider/provider.dart';
 
@@ -21,13 +22,14 @@ class LoginPage extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: Container(
+            height: MediaQuery.of(context).size.height - 80.0,
             padding: EdgeInsets.all(20.0),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
+                DefaultTitle(),
                 LoginForm(),
-                Divider(
-                  height: 40.0,
-                ),
+                Divider(),
                 DefaultRaisedButton(
                   text: Strings.authGoogleSign,
                   textColor: DefaultColors.white,

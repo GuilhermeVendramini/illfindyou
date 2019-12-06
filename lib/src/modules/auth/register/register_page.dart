@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:illfindyou/src/shared/i18n/en-US.dart';
+import 'package:illfindyou/src/shared/widgets/components/default-title.dart';
 import 'package:illfindyou/src/shared/widgets/forms/register-form.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -18,8 +19,15 @@ class _RegisterPageState extends State<RegisterPage> {
       body: Center(
         child: SingleChildScrollView(
           child: Container(
+            height: MediaQuery.of(context).size.height - 80.0,
             padding: EdgeInsets.all(20.0),
-            child: RegisterForm(),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                DefaultTitle(),
+                RegisterForm(),
+              ],
+            ),
           ),
         ),
       ),
