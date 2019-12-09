@@ -70,6 +70,13 @@ mixin _$AppController on _AppController, Store {
     return _$_loadCurrentUserAsyncAction.run(() => super._loadCurrentUser());
   }
 
+  final _$logoutAsyncAction = AsyncAction('logout');
+
+  @override
+  Future<bool> logout() {
+    return _$logoutAsyncAction.run(() => super.logout());
+  }
+
   final _$_AppControllerActionController =
       ActionController(name: '_AppController');
 

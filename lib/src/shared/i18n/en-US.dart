@@ -7,6 +7,7 @@ class Strings {
   static const String icon = "Icon";
   static const String confirm = "Confirm";
   static const String cancel = "Cancel";
+  static const String logout = "Logout";
 
   // App
   static const String appTitle = "I'LL FIND YOU";

@@ -25,11 +25,27 @@ abstract class _AppController with Store {
 
   @action
   Future<Null> _loadCurrentUser() async {
-    user = await _firebaseAuth.currentUser();
+    try {
+      user = await _firebaseAuth.currentUser();
+    } catch (e) {
+      print('app_controller - loadCurrentUser(): $e');
+    }
+
     currentUserVerified = true;
 
     if (user == null) {
       _startAnimation();
+    }
+  }
+
+  @action
+  Future<bool> logout() async {
+    try {
+      await _firebaseAuth.signOut();
+      return true;
+    } catch (e) {
+      print('app_controller - logout(): $e');
+      return false;
     }
   }
 
