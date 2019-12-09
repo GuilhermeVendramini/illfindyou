@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:illfindyou/src/modules/auth/register/register_controller.dart';
 import 'package:illfindyou/src/shared/i18n/en-US.dart';
 import 'package:illfindyou/src/shared/widgets/components/default-title.dart';
 import 'package:illfindyou/src/shared/widgets/forms/register-form.dart';
+import 'package:provider/provider.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -11,6 +13,7 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
+    final _controller = Provider.of<RegisterController>(context);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -25,7 +28,9 @@ class _RegisterPageState extends State<RegisterPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 DefaultTitle(),
-                RegisterForm(),
+                _controller.registerState == RegisterState.LOADING
+                    ? CircularProgressIndicator()
+                    : RegisterForm(),
               ],
             ),
           ),
