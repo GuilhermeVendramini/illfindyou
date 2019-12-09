@@ -12,7 +12,7 @@ abstract class _AppController with Store {
     }
   }
 
-  final _firebaseAuth = FirebaseAuth.instance;
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   @observable
   bool startedAnimation = false;

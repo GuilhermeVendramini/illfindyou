@@ -18,31 +18,39 @@ abstract class _RegisterController with Store {
   @observable
   String password;
 
-  saveRegisterForm() async {
-    registerState = RegisterState.LOADING;
+  @observable
+  String message;
+
+  @action
+  Future<RegisterState> saveRegisterForm() async {
+    message = '';
     final _form = formKey.currentState;
     try {
       if (_form.validate()) {
+        registerState = RegisterState.LOADING;
         _form.save();
-
         String userId = await signUp(email, password);
         if (userId.isNotEmpty) {
           registerState = RegisterState.SUCCESS;
-          return true;
+          return RegisterState.SUCCESS;
         }
 
         registerState = RegisterState.FAIL;
-        return false;
+        return RegisterState.FAIL;
       }
     } catch (e) {
       List<String> error = e.toString().split(',');
-      print(error[1]);
+
+      if (error[1] != null && error[1].isNotEmpty) {
+        message = error[1];
+      }
+
       print('register_controller - saveRegisterForm(): $e');
       registerState = RegisterState.FAIL;
-      return false;
+      return RegisterState.FAIL;
     }
 
-    return false;
+    return RegisterState.IDLE;
   }
 
   saveFieldEmail(String value) {

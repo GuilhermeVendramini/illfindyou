@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:illfindyou/src/core/app_module.dart';
 import 'package:illfindyou/src/modules/auth/register/register_controller.dart';
 import 'package:illfindyou/src/shared/i18n/en-US.dart';
 import 'package:illfindyou/src/shared/validators/default_validators.dart';
 import 'package:illfindyou/src/shared/widgets/components/default-raised-button.dart';
+import 'package:illfindyou/src/shared/widgets/components/default-snack-bar.dart';
 import 'package:illfindyou/src/shared/widgets/fields/default-text-form-field.dart';
 import 'package:provider/provider.dart';
 
@@ -57,7 +59,24 @@ class _RegisterFormState extends State<RegisterForm> {
             height: 40.0,
           ),
           DefaultRaisedButton(
-            onPressed: _controller.saveRegisterForm,
+            onPressed: () async {
+              RegisterState _result = await _controller.saveRegisterForm();
+
+              if (_controller.message != null &&
+                  _controller.message.isNotEmpty) {
+                final SnackBar _snackBar = DefaultSnackBar(
+                  content: Text(_controller.message),
+                );
+                Scaffold.of(context).showSnackBar(_snackBar);
+              }
+
+              if (_result == RegisterState.SUCCESS) {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => AppModule()),
+                );
+              }
+            },
             text: Strings.authCreateAccount,
           ),
         ],

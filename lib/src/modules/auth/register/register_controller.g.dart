@@ -43,6 +43,30 @@ mixin _$RegisterController on _RegisterController, Store {
     }, _$passwordAtom, name: '${_$passwordAtom.name}_set');
   }
 
+  final _$messageAtom = Atom(name: '_RegisterController.message');
+
+  @override
+  String get message {
+    _$messageAtom.context.enforceReadPolicy(_$messageAtom);
+    _$messageAtom.reportObserved();
+    return super.message;
+  }
+
+  @override
+  set message(String value) {
+    _$messageAtom.context.conditionallyRunInAction(() {
+      super.message = value;
+      _$messageAtom.reportChanged();
+    }, _$messageAtom, name: '${_$messageAtom.name}_set');
+  }
+
+  final _$saveRegisterFormAsyncAction = AsyncAction('saveRegisterForm');
+
+  @override
+  Future<RegisterState> saveRegisterForm() {
+    return _$saveRegisterFormAsyncAction.run(() => super.saveRegisterForm());
+  }
+
   final _$_RegisterControllerActionController =
       ActionController(name: '_RegisterController');
 
