@@ -40,8 +40,7 @@ class LoginPage extends StatelessWidget {
                       Navigator.pop(context);
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => HomeModule()),
+                        MaterialPageRoute(builder: (context) => HomeModule()),
                       );
                     }
                   },

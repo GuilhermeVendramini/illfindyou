@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:illfindyou/src/shared/colors/default_colors.dart';
 
 class DefaultTitle extends StatelessWidget {
+  final double fontSize;
+
+  DefaultTitle({this.fontSize = 28.0});
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -12,8 +16,7 @@ class DefaultTitle extends StatelessWidget {
           child: Text(
             "I'LL FIND",
             style: TextStyle(
-              fontSize: 28.0,
-              fontWeight: FontWeight.w600,
+              fontSize: fontSize,
             ),
           ),
         ),
@@ -24,7 +27,7 @@ class DefaultTitle extends StatelessWidget {
           child: Text(
             'YOU',
             style: TextStyle(
-              fontSize: 28.0,
+              fontSize: fontSize,
               fontWeight: FontWeight.w600,
               color: DefaultColors.black,
             ),

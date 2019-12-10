@@ -2,14 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:illfindyou/src/modules/home/home_controller.dart';
-import 'package:illfindyou/src/shared/widgets/components/image-aspect-ratio.dart';
+import 'package:illfindyou/src/shared/i18n/en-US.dart';
 import 'package:provider/provider.dart';
 
-class PickedImageBlock extends StatelessWidget {
+import 'missing-image-block.dart';
+
+class PickImageBlock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _controller = Provider.of<HomeController>(context);
-    _controller.pickImageState = PickImageState.IDLE;
+
+    if (_controller.pickImageState != PickImageState.SUCCESS) {
+      _controller.pickImageState = PickImageState.IDLE;
+    }
 
     return Container(
       padding: EdgeInsets.all(20.0),
@@ -20,9 +25,7 @@ class PickedImageBlock extends StatelessWidget {
               return CircularProgressIndicator();
               break;
             case PickImageState.SUCCESS:
-              return ImageAspectRatio(
-                image: Image.file(_controller.imageFile).image,
-              );
+              return MissingImageBlock();
               break;
             case PickImageState.FAIL:
             case PickImageState.IDLE:
@@ -30,21 +33,18 @@ class PickedImageBlock extends StatelessWidget {
               return Column(
                 children: <Widget>[
                   Text(
-                    "Did you find anyone?",
+                    Strings.homePickImageTitle,
                     style: TextStyle(
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.w300,
+                      fontSize: 28.0,
                     ),
+                    textAlign: TextAlign.center,
                   ),
                   SizedBox(
                     height: 20.0,
                   ),
                   Text(
-                    "Upload the person's photo and we'll try to find some information",
+                    Strings.homePickImageInformation,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w300,
-                    ),
                   ),
                 ],
               );

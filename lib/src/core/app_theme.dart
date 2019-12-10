@@ -6,6 +6,21 @@ class AppTheme {
   AppTheme._();
 
   static final ThemeData themeData = ThemeData(
+    textTheme: TextTheme(
+      title: TextStyle(fontWeight: FontWeight.w300),
+      subhead: TextStyle(fontWeight: FontWeight.w300),
+      body1: TextStyle(fontWeight: FontWeight.w300),
+      button: TextStyle(fontWeight: FontWeight.w300),
+      body2: TextStyle(fontWeight: FontWeight.w300),
+      caption: TextStyle(fontWeight: FontWeight.w300),
+      display1: TextStyle(fontWeight: FontWeight.w300),
+      display2: TextStyle(fontWeight: FontWeight.w300),
+      display3: TextStyle(fontWeight: FontWeight.w300),
+      display4: TextStyle(fontWeight: FontWeight.w300),
+      headline: TextStyle(fontWeight: FontWeight.w300),
+      overline: TextStyle(fontWeight: FontWeight.w300),
+      subtitle: TextStyle(fontWeight: FontWeight.w300),
+    ),
     dividerColor: DefaultColors.grey,
     scaffoldBackgroundColor: DefaultColors.black,
     appBarTheme: AppBarTheme(

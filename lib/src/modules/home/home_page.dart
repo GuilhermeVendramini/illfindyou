@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:illfindyou/src/shared/i18n/en-US.dart';
-import 'package:illfindyou/src/shared/widgets/blocks/picked-image-block.dart';
+import 'package:illfindyou/src/shared/widgets/blocks/pick-image-block.dart';
 import 'package:illfindyou/src/shared/widgets/components/default-drawer.dart';
+import 'package:illfindyou/src/shared/widgets/components/default-title.dart';
 import 'package:illfindyou/src/shared/widgets/components/floating-action-button-picker-image.dart';
 
 class HomePage extends StatelessWidget {
@@ -11,7 +11,9 @@ class HomePage extends StatelessWidget {
       drawer: DefaultDrawer(),
       appBar: AppBar(
         centerTitle: true,
-        title: Text(Strings.appTitle),
+        title: DefaultTitle(
+          fontSize: 20.0,
+        ),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -19,7 +21,7 @@ class HomePage extends StatelessWidget {
             padding: EdgeInsets.all(20.0),
             child: Column(
               children: <Widget>[
-                PickedImageBlock(),
+                PickImageBlock(),
               ],
             ),
           ),
