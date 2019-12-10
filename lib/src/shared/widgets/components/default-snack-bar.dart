@@ -5,7 +5,6 @@ class DefaultSnackBar extends SnackBar {
 
   DefaultSnackBar({@required this.content}) : super(content: content);
 
-  @override
   Widget build(BuildContext context) {
     return SnackBar(
       content: content,
