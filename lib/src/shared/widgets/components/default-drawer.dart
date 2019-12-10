@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:illfindyou/src/core/app_controller.dart';
 import 'package:illfindyou/src/core/app_module.dart';
 import 'package:illfindyou/src/shared/i18n/en-US.dart';
