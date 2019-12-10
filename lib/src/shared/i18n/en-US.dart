@@ -1,4 +1,5 @@
 class Strings {
+
   Strings._();
 
   // Generic
@@ -12,6 +13,10 @@ class Strings {
 
   // App
   static const String appTitle = "I'LL FIND YOU";
+  static const String appReportMissing = "Report a missing person";
+
+  // Home
+  static const String homeErrorMessagePickerImage = 'Upload error. Try again or choose a different image';
 
   // Auth
 

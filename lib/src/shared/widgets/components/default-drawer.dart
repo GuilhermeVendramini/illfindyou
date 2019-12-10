@@ -20,6 +20,11 @@ class DefaultDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
+            leading: Icon(Icons.report),
+            title: Text(Strings.appReportMissing),
+            onTap: () {},
+          ),
+          ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text(Strings.logout),
             onTap: () async {

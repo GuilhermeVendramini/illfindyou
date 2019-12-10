@@ -41,7 +41,8 @@ class AppTheme {
       ),
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
-      backgroundColor: DefaultColors.primary,
+      splashColor: Colors.black,
+      backgroundColor: DefaultColors.white,
     ),
   );
 
