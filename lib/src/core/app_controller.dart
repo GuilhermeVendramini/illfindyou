@@ -23,10 +23,17 @@ abstract class _AppController with Store {
   @observable
   bool currentUserVerified = false;
 
+  @observable
+  String userName;
+
   @action
   Future<Null> _loadCurrentUser() async {
     try {
       user = await _firebaseAuth.currentUser();
+
+      if (user != null) {
+        userName = user.displayName != null ? user.displayName : user.email;
+      }
     } catch (e) {
       print('app_controller - loadCurrentUser(): $e');
     }

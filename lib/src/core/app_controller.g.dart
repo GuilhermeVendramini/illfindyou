@@ -63,6 +63,23 @@ mixin _$AppController on _AppController, Store {
         name: '${_$currentUserVerifiedAtom.name}_set');
   }
 
+  final _$userNameAtom = Atom(name: '_AppController.userName');
+
+  @override
+  String get userName {
+    _$userNameAtom.context.enforceReadPolicy(_$userNameAtom);
+    _$userNameAtom.reportObserved();
+    return super.userName;
+  }
+
+  @override
+  set userName(String value) {
+    _$userNameAtom.context.conditionallyRunInAction(() {
+      super.userName = value;
+      _$userNameAtom.reportChanged();
+    }, _$userNameAtom, name: '${_$userNameAtom.name}_set');
+  }
+
   final _$_loadCurrentUserAsyncAction = AsyncAction('_loadCurrentUser');
 
   @override

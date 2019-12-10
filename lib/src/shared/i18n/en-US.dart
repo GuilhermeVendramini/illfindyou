@@ -8,6 +8,7 @@ class Strings {
   static const String confirm = "Confirm";
   static const String cancel = "Cancel";
   static const String logout = "Logout";
+  static const String welcome = "Welcome";
 
   // App
   static const String appTitle = "I'LL FIND YOU";
