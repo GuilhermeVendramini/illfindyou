@@ -17,6 +17,7 @@ class DefaultTitle extends StatelessWidget {
             "I'LL FIND",
             style: TextStyle(
               fontSize: fontSize,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),
