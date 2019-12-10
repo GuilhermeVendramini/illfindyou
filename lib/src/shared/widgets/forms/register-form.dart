@@ -58,26 +58,36 @@ class _RegisterFormState extends State<RegisterForm> {
           SizedBox(
             height: 40.0,
           ),
-          DefaultRaisedButton(
-            onPressed: () async {
-              RegisterState _result = await _controller.saveRegisterForm();
+          Observer(
+            builder: (_) {
+              return Container(
+                child: _controller.registerState == RegisterState.LOADING
+                    ? CircularProgressIndicator()
+                    : DefaultRaisedButton(
+                        onPressed: () async {
+                          RegisterState _result =
+                              await _controller.saveRegisterForm();
 
-              if (_controller.message != null &&
-                  _controller.message.isNotEmpty) {
-                final SnackBar _snackBar = DefaultSnackBar(
-                  content: Text(_controller.message),
-                );
-                Scaffold.of(context).showSnackBar(_snackBar);
-              }
+                          if (_controller.message != null &&
+                              _controller.message.isNotEmpty) {
+                            final SnackBar _snackBar = DefaultSnackBar(
+                              content: Text(_controller.message),
+                            );
+                            Scaffold.of(context).showSnackBar(_snackBar);
+                          }
 
-              if (_result == RegisterState.SUCCESS) {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => AppModule()),
-                );
-              }
+                          if (_result == RegisterState.SUCCESS) {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AppModule()),
+                            );
+                          }
+                        },
+                        text: Strings.authCreateAccount,
+                      ),
+              );
             },
-            text: Strings.authCreateAccount,
           ),
         ],
       ),
