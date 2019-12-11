@@ -19,13 +19,6 @@ class DefaultDrawer extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Colors.black, Colors.grey[800]],
-                ),
-              ),
               child: Center(
                 child: _controller.userName != null
                     ? Text(

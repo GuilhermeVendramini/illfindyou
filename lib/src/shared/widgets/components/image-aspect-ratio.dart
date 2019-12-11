@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:illfindyou/src/shared/colors/default_colors.dart';
 
 class ImageAspectRatio extends StatelessWidget {
   final ImageProvider image;
@@ -12,14 +11,10 @@ class ImageAspectRatio extends StatelessWidget {
       height: 280.0,
       child: AspectRatio(
         aspectRatio: 3 / 4,
-        child: Container(
-          decoration: BoxDecoration(
-            border: Border.all(color: DefaultColors.white),
-            image: DecorationImage(
-              image: image,
-              fit: BoxFit.cover,
-            ),
-          ),
+        child: FadeInImage(
+          image: image,
+          placeholder: AssetImage('assets/images/background01.jpg'),
+          fit: BoxFit.cover,
         ),
       ),
     );
