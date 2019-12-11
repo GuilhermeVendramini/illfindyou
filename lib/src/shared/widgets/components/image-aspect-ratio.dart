@@ -8,13 +8,13 @@ class ImageAspectRatio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 280.0,
+      height: 300.0,
       child: AspectRatio(
         aspectRatio: 3 / 4,
         child: FadeInImage(
           image: image,
           placeholder: AssetImage('assets/images/background01.jpg'),
-          fit: BoxFit.cover,
+          fit: BoxFit.fitHeight,
         ),
       ),
     );
