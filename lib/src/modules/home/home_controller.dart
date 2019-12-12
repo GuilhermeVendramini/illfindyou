@@ -21,7 +21,7 @@ abstract class _HomeController with Store {
   PickImageState pickImageState = PickImageState.IDLE;
 
   @observable
-  dynamic scanResults;
+  List<ImageLabel> scanResults;
 
   String message;
 
@@ -38,7 +38,7 @@ abstract class _HomeController with Store {
 
       if (imageFile != null) {
         pickImageState = PickImageState.SUCCESS;
-        //scanImage(imageFile);
+        _scanImage(imageFile);
         return PickImageState.SUCCESS;
       }
 
@@ -51,7 +51,7 @@ abstract class _HomeController with Store {
     }
   }
 
-  Future<void> scanImage(File imageFile) async {
+  Future<void> _scanImage(File imageFile) async {
     try {
       scanResults = null;
 
@@ -59,6 +59,10 @@ abstract class _HomeController with Store {
           FirebaseVisionImage.fromFile(imageFile);
 
       scanResults = await _imageLabeler.processImage(visionImage);
+
+      scanResults.forEach((data) {
+        print(data.text);
+      });
     } catch (e) {
       print('home_controller - _scanImage(): $e');
     }

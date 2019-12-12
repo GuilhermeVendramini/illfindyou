@@ -46,14 +46,14 @@ mixin _$HomeController on _HomeController, Store {
   final _$scanResultsAtom = Atom(name: '_HomeController.scanResults');
 
   @override
-  dynamic get scanResults {
+  List<ImageLabel> get scanResults {
     _$scanResultsAtom.context.enforceReadPolicy(_$scanResultsAtom);
     _$scanResultsAtom.reportObserved();
     return super.scanResults;
   }
 
   @override
-  set scanResults(dynamic value) {
+  set scanResults(List<ImageLabel> value) {
     _$scanResultsAtom.context.conditionallyRunInAction(() {
       super.scanResults = value;
       _$scanResultsAtom.reportChanged();
