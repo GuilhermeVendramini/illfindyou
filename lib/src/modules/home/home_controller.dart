@@ -21,6 +21,15 @@ abstract class _HomeController with Store {
   @observable
   List<VisionEdgeImageLabel> scanResults;
 
+  final VisionEdgeImageLabeler _visionEdgeImageLabeler =
+  FirebaseVision.instance.visionEdgeImageLabeler(
+    'person',
+    ModelLocation.Local,
+    VisionEdgeImageLabelerOptions(
+      confidenceThreshold: 0.7,
+    ),
+  );
+
   String message;
 
   @action
@@ -51,8 +60,6 @@ abstract class _HomeController with Store {
 
   Future<void> _scanImage(File imageFile) async {
     try {
-      final VisionEdgeImageLabeler _visionEdgeImageLabeler = FirebaseVision.instance
-          .visionEdgeImageLabeler('person', ModelLocation.Local);
       scanResults = null;
 
       final FirebaseVisionImage _visionImage =
@@ -61,11 +68,17 @@ abstract class _HomeController with Store {
       scanResults = await _visionEdgeImageLabeler.processImage(_visionImage);
 
       scanResults.forEach((data) {
+        print('-----------------------------------');
         print(data.text);
+        print(data.confidence);
       });
-      _visionEdgeImageLabeler.close();
     } catch (e) {
       print('home_controller - _scanImage(): $e');
     }
+  }
+
+  @override
+  void dispose() {
+    _visionEdgeImageLabeler.close();
   }
 }
