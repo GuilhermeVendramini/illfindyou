@@ -1,11 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
+import 'package:illfindyou/src/services/firestore_service.dart';
 
 class MissingData {
-  final Firestore firestore = Firestore.instance;
-
   Future<QuerySnapshot> loadMissing({@required String label}) {
-    return firestore
+    return FirestoreService.firestore
         .collection("missing")
         .where("label", isEqualTo: label)
         .getDocuments();
