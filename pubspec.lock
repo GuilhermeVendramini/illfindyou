@@ -193,10 +193,10 @@ packages:
   firebase_ml_vision:
     dependency: "direct main"
     description:
-      name: firebase_ml_vision
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.9.3+3"
+      path: "../plugins/packages/firebase_ml_vision"
+      relative: true
+    source: path
+    version: "1.0.0"
   fixnum:
     dependency: transitive
     description:

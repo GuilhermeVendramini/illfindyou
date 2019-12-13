@@ -36,10 +36,14 @@ android {
         disable 'InvalidPackage'
     }
 
+    aaptOptions {
+        noCompress "tflite"
+    }
+
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "vendramini.illfindyou"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

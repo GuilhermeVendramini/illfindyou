@@ -17,7 +17,8 @@ dependencies:
   google_sign_in: ^4.0.16
   shared_preferences: ^0.5.4+9
   image_picker: ^0.6.2+3
-  firebase_ml_vision: ^0.9.3+3
+  firebase_ml_vision:
+    path: ../plugins/packages/firebase_ml_vision
 
 dev_dependencies:
   mobx_codegen: ^0.3.10+1
@@ -45,6 +46,9 @@ flutter:
   assets:
     - assets/images/background01.jpg
     - assets/images/image-loading.gif
+    - assets/person/dict.txt
+    - assets/person/manifest.json
+    - assets/person/model.tflite
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

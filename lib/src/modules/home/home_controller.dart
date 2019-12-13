@@ -12,8 +12,6 @@ class HomeController = _HomeController with _$HomeController;
 enum PickImageState { LOADING, SUCCESS, FAIL, IDLE }
 
 abstract class _HomeController with Store {
-  final ImageLabeler _imageLabeler = FirebaseVision.instance.imageLabeler();
-
   @observable
   File imageFile;
 
@@ -21,7 +19,7 @@ abstract class _HomeController with Store {
   PickImageState pickImageState = PickImageState.IDLE;
 
   @observable
-  List<ImageLabel> scanResults;
+  List<VisionEdgeImageLabel> scanResults;
 
   String message;
 
@@ -53,16 +51,19 @@ abstract class _HomeController with Store {
 
   Future<void> _scanImage(File imageFile) async {
     try {
+      final VisionEdgeImageLabeler _visionEdgeImageLabeler = FirebaseVision.instance
+          .visionEdgeImageLabeler('person', ModelLocation.Local);
       scanResults = null;
 
-      final FirebaseVisionImage visionImage =
+      final FirebaseVisionImage _visionImage =
           FirebaseVisionImage.fromFile(imageFile);
 
-      scanResults = await _imageLabeler.processImage(visionImage);
+      scanResults = await _visionEdgeImageLabeler.processImage(_visionImage);
 
       scanResults.forEach((data) {
         print(data.text);
       });
+      _visionEdgeImageLabeler.close();
     } catch (e) {
       print('home_controller - _scanImage(): $e');
     }
