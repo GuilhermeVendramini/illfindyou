@@ -100,12 +100,12 @@ abstract class _HomeController with Store {
             missingList.add(_missing);
           }
           missingState = MissingState.SUCCESS;
+          animationController.forward();
         });
       } else {
         missingState = MissingState.SUCCESS;
+        animationController.forward();
       }
-
-      animationController.forward();
     } catch (e) {
       missingState = MissingState.FAIL;
       print('home_controller - _scanImage(): $e');
