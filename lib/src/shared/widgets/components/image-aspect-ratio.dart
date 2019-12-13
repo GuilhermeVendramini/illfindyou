@@ -13,7 +13,7 @@ class ImageAspectRatio extends StatelessWidget {
         aspectRatio: 3 / 4,
         child: FadeInImage(
           image: image,
-          placeholder: AssetImage('assets/images/background01.jpg'),
+          placeholder: AssetImage('assets/images/image-loading.gif'),
           fit: BoxFit.fitHeight,
         ),
       ),
