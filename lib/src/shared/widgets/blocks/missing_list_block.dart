@@ -21,7 +21,9 @@ class _MissingListBlockState extends State<MissingListBlock>
     _animation = CurvedAnimation(
         parent: _controller.animationController, curve: Curves.easeIn);
 
-    _controller.animationController.forward();
+    if (_controller.missingState == MissingState.SUCCESS) {
+      _controller.animationController.forward();
+    }
 
     return Observer(
       builder: (_) {
