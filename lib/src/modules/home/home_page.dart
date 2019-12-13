@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:illfindyou/src/shared/widgets/blocks/missing_list_block.dart';
 import 'package:illfindyou/src/shared/widgets/blocks/pick-image-block.dart';
 import 'package:illfindyou/src/shared/widgets/components/default-drawer.dart';
 import 'package:illfindyou/src/shared/widgets/components/default-title.dart';
@@ -22,6 +23,7 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 PickImageBlock(),
+                MissingListBlock(),
               ],
             ),
           ),

@@ -43,6 +43,23 @@ mixin _$HomeController on _HomeController, Store {
     }, _$pickImageStateAtom, name: '${_$pickImageStateAtom.name}_set');
   }
 
+  final _$missingStateAtom = Atom(name: '_HomeController.missingState');
+
+  @override
+  MissingState get missingState {
+    _$missingStateAtom.context.enforceReadPolicy(_$missingStateAtom);
+    _$missingStateAtom.reportObserved();
+    return super.missingState;
+  }
+
+  @override
+  set missingState(MissingState value) {
+    _$missingStateAtom.context.conditionallyRunInAction(() {
+      super.missingState = value;
+      _$missingStateAtom.reportChanged();
+    }, _$missingStateAtom, name: '${_$missingStateAtom.name}_set');
+  }
+
   final _$scanResultsAtom = Atom(name: '_HomeController.scanResults');
 
   @override
@@ -60,10 +77,35 @@ mixin _$HomeController on _HomeController, Store {
     }, _$scanResultsAtom, name: '${_$scanResultsAtom.name}_set');
   }
 
+  final _$missingListAtom = Atom(name: '_HomeController.missingList');
+
+  @override
+  List<MissingModel> get missingList {
+    _$missingListAtom.context.enforceReadPolicy(_$missingListAtom);
+    _$missingListAtom.reportObserved();
+    return super.missingList;
+  }
+
+  @override
+  set missingList(List<MissingModel> value) {
+    _$missingListAtom.context.conditionallyRunInAction(() {
+      super.missingList = value;
+      _$missingListAtom.reportChanged();
+    }, _$missingListAtom, name: '${_$missingListAtom.name}_set');
+  }
+
   final _$getAndScanImageAsyncAction = AsyncAction('getAndScanImage');
 
   @override
   Future<PickImageState> getAndScanImage() {
     return _$getAndScanImageAsyncAction.run(() => super.getAndScanImage());
+  }
+
+  final _$_searchMissingAsyncAction = AsyncAction('_searchMissing');
+
+  @override
+  Future<void> _searchMissing(File imageFile) {
+    return _$_searchMissingAsyncAction
+        .run(() => super._searchMissing(imageFile));
   }
 }
