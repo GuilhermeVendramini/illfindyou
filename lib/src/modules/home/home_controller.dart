@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:firebase_ml_vision/firebase_ml_vision.dart';
+import 'package:flutter/animation.dart';
 import 'package:illfindyou/src/models/missing_model.dart';
 import 'package:illfindyou/src/services/missing_service.dart';
 import 'package:illfindyou/src/shared/i18n/en-US.dart';
@@ -27,6 +28,8 @@ abstract class _HomeController with Store {
   @observable
   List<VisionEdgeImageLabel> scanResults;
 
+  AnimationController animationController;
+
   final VisionEdgeImageLabeler _visionEdgeImageLabeler =
       FirebaseVision.instance.visionEdgeImageLabeler(
     'person',
@@ -49,12 +52,17 @@ abstract class _HomeController with Store {
       message = '';
       pickImageState = PickImageState.LOADING;
 
-      imageFile = await ImagePicker.pickImage(source: ImageSource.gallery)
+      File _imageFile = await ImagePicker.pickImage(source: ImageSource.gallery)
           .whenComplete(() {
-        pickImageState = PickImageState.IDLE;
+        if (imageFile != null && imageFile.path.isNotEmpty) {
+          pickImageState = PickImageState.SUCCESS;
+        } else {
+          pickImageState = PickImageState.IDLE;
+        }
       });
 
-      if (imageFile != null) {
+      if (_imageFile != null) {
+        imageFile = _imageFile;
         pickImageState = PickImageState.SUCCESS;
         _searchMissing(imageFile);
         return PickImageState.SUCCESS;
@@ -72,6 +80,7 @@ abstract class _HomeController with Store {
   @action
   Future<void> _searchMissing(File imageFile) async {
     try {
+      animationController.reset();
       missingState = MissingState.LOADING;
       scanResults = null;
       missingList = [];
@@ -81,15 +90,22 @@ abstract class _HomeController with Store {
 
       scanResults = await _visionEdgeImageLabeler.processImage(_visionImage);
 
-      scanResults.forEach((data) async {
-        final MissingModel _missing =
-            await _missingService.getMissing(label: data.text);
-        if (_missing != null) {
-          missingList.add(_missing);
-        }
+      if (scanResults.isNotEmpty) {
+        scanResults.forEach((data) async {
+          final MissingModel _missing =
+              await _missingService.getMissing(label: data.text);
+          if (_missing != null) {
+            missingList.add(_missing);
+            missingList.add(_missing);
+            missingList.add(_missing);
+          }
+          missingState = MissingState.SUCCESS;
+        });
+      } else {
         missingState = MissingState.SUCCESS;
-      });
-      missingState = MissingState.SUCCESS;
+      }
+
+      animationController.forward();
     } catch (e) {
       missingState = MissingState.FAIL;
       print('home_controller - _scanImage(): $e');

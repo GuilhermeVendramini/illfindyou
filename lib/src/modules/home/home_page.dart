@@ -23,6 +23,9 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 PickImageBlock(),
+                SizedBox(
+                  height: 20.0,
+                ),
                 MissingListBlock(),
               ],
             ),

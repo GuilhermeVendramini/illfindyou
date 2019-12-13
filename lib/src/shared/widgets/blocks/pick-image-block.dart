@@ -12,10 +12,6 @@ class PickImageBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     final _controller = Provider.of<HomeController>(context);
 
-    if (_controller.pickImageState != PickImageState.SUCCESS) {
-      _controller.pickImageState = PickImageState.IDLE;
-    }
-
     return Container(
       padding: EdgeInsets.all(20.0),
       child: Observer(
