@@ -7,7 +7,6 @@ import 'missing_card.dart';
 class MissingList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     final _controller = Provider.of<HomeController>(context);
 
     return ListView.builder(

@@ -3,7 +3,6 @@ import 'package:illfindyou/src/models/missing_model.dart';
 import 'package:illfindyou/src/shared/colors/default_colors.dart';
 
 class MissingCard extends StatelessWidget {
-
   final MissingModel missing;
 
   MissingCard({@required this.missing});
@@ -17,9 +16,12 @@ class MissingCard extends StatelessWidget {
       color: DefaultColors.white,
       child: Column(
         children: <Widget>[
-          Text(missing.name, style: TextStyle(
-            color: DefaultColors.black,
-          ),),
+          Text(
+            missing.name,
+            style: TextStyle(
+              color: DefaultColors.black,
+            ),
+          ),
         ],
       ),
     );

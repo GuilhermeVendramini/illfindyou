@@ -17,10 +17,9 @@ class MissingImageBlock extends StatelessWidget {
           Text(
             'Missing',
             style: TextStyle(
-              fontSize: 26.0,
-              fontWeight: FontWeight.w400,
-              color: DefaultColors.black
-            ),
+                fontSize: 26.0,
+                fontWeight: FontWeight.w400,
+                color: DefaultColors.black),
           ),
           SizedBox(
             height: 10.0,
