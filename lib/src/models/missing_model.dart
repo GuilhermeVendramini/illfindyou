@@ -4,10 +4,12 @@ import 'package:flutter/foundation.dart';
 class MissingModel {
   final String name;
   final String label;
+  final List<dynamic> images;
 
   MissingModel({
     @required this.name,
     @required this.label,
+    @required this.images,
   });
 
   factory MissingModel.fromFirestore(DocumentSnapshot doc) {
@@ -16,6 +18,7 @@ class MissingModel {
     return MissingModel(
       name: data['name'].toString(),
       label: data['label'].toString(),
+      images: data['images'],
     );
   }
 }

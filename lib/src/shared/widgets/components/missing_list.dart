@@ -9,7 +9,12 @@ class MissingList extends StatelessWidget {
   Widget build(BuildContext context) {
     final _controller = Provider.of<HomeController>(context);
 
-    return ListView.builder(
+    return ListView.separated(
+      separatorBuilder: (BuildContext context, int index) {
+        return SizedBox(
+          width: 20,
+        );
+      },
       scrollDirection: Axis.horizontal,
       shrinkWrap: true,
       itemCount: _controller.missingList.length,

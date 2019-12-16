@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:illfindyou/src/modules/home/home_controller.dart';
 import 'package:illfindyou/src/shared/colors/default_colors.dart';
+import 'package:illfindyou/src/shared/i18n/en-US.dart';
 import 'package:illfindyou/src/shared/widgets/components/image-aspect-ratio.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +16,7 @@ class MissingImageBlock extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Text(
-            'Missing',
+            Strings.homeMissing,
             style: TextStyle(
                 fontSize: 26.0,
                 fontWeight: FontWeight.w400,

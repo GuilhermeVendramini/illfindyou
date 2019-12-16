@@ -15,11 +15,14 @@ class Strings {
   static const String appReportMissing = "Report a missing person";
 
   // Home
+  static const String homeMissing = 'Missing';
   static const String homePickImageTitle = "Did you find someone?";
   static const String homePickImageInformation =
       "Upload the person's photo and we'll try to find your information";
   static const String homeErrorMessagePickerImage =
       'Upload error. Try again or choose a different image';
+  static const String homeFoundMissing = 'Can be one of them';
+  static const String homeFoundOneMissing = 'Can be';
 
   // Auth
 

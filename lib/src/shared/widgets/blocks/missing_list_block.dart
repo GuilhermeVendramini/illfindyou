@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:illfindyou/src/modules/home/home_controller.dart';
+import 'package:illfindyou/src/shared/i18n/en-US.dart';
 import 'package:illfindyou/src/shared/widgets/components/missing_list.dart';
 import 'package:provider/provider.dart';
 
@@ -32,29 +33,35 @@ class _MissingListBlockState extends State<MissingListBlock>
             return CircularProgressIndicator();
             break;
           case MissingState.SUCCESS:
-            return _controller.missingList != null &&
-                    _controller.missingList.isNotEmpty
-                ? FadeTransition(
-                    opacity: _animation,
-                    child: Column(
-                      children: <Widget>[
-                        Text(
-                          'Can be one of them',
-                          style: TextStyle(
-                            fontSize: 20.0,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 16.0,
-                        ),
-                        Container(
-                          height: 280.0,
-                          child: MissingList(),
-                        ),
-                      ],
+            if (_controller.missingList != null &&
+                _controller.missingList.isNotEmpty) {
+              final String _messageFoundMissing =
+                  _controller.missingList.length > 1
+                      ? Strings.homeFoundMissing
+                      : Strings.homeFoundOneMissing;
+              return FadeTransition(
+                opacity: _animation,
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      _messageFoundMissing,
+                      style: TextStyle(
+                        fontSize: 20.0,
+                      ),
                     ),
-                  )
-                : Text('No results');
+                    SizedBox(
+                      height: 16.0,
+                    ),
+                    Container(
+                      height: 280.0,
+                      child: MissingList(),
+                    ),
+                  ],
+                ),
+              );
+            } else {
+              return Text('No results');
+            }
             break;
           case MissingState.FAIL:
             return Text('Fail');

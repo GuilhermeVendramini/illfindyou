@@ -11,4 +11,10 @@ class MissingService {
     List<DocumentSnapshot> _missingDocuments = _missing.documents;
     return MissingModel.fromFirestore(_missingDocuments.first);
   }
+
+  Future<String> getMissingImagePath({@required image}) async {
+    final String _image =
+        await _missingData.loadMissingImage(image: image).getDownloadURL();
+    return _image;
+  }
 }

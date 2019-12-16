@@ -95,8 +95,9 @@ abstract class _HomeController with Store {
           final MissingModel _missing =
               await _missingService.getMissing(label: data.text);
           if (_missing != null) {
-            missingList.add(_missing);
-            missingList.add(_missing);
+            final String _image = await _missingService.getMissingImagePath(
+                image: _missing.images[0]);
+            _missing.images[0] = _image;
             missingList.add(_missing);
           }
           missingState = MissingState.SUCCESS;
