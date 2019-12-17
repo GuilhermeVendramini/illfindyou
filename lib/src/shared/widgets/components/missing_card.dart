@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:illfindyou/src/models/missing_model.dart';
+import 'package:illfindyou/src/modules/missing/missing_module.dart';
 import 'package:illfindyou/src/shared/colors/default_colors.dart';
 
 class MissingCard extends StatelessWidget {
@@ -63,7 +64,14 @@ class MissingCard extends StatelessWidget {
             child: InkWell(
               splashColor: DefaultColors.black.withOpacity(0.8),
               onTap: () {
-                print('tap');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MissingModule(
+                      missing: missing,
+                    ),
+                  ),
+                );
               },
               child: Container(),
             ),

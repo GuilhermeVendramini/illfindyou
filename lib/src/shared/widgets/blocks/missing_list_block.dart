@@ -17,8 +17,8 @@ class _MissingListBlockState extends State<MissingListBlock>
   @override
   Widget build(BuildContext context) {
     final _controller = Provider.of<HomeController>(context);
-    _controller.animationController =
-        AnimationController(duration: const Duration(seconds: 3), vsync: this);
+    _controller.animationController = AnimationController(
+        duration: const Duration(milliseconds: 500), vsync: this);
     _animation = CurvedAnimation(
         parent: _controller.animationController, curve: Curves.easeIn);
 

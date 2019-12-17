@@ -20,6 +20,7 @@ class HomePage extends StatelessWidget {
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           child: Container(
+            width: MediaQuery.of(context).size.width,
             padding: EdgeInsets.all(20.0),
             child: Column(
               children: <Widget>[
