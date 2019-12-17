@@ -23,6 +23,8 @@ class Strings {
       'Upload error. Try again or choose a different image';
   static const String homeFoundMissing = 'Can be one of them';
   static const String homeFoundOneMissing = 'Can be';
+  static const String homeGetMissingFail = 'Sorry, something wrong happened. Try uploading the image again';
+  static const String homeGetMissingNoResults = 'Sorry, no results found. Try with another image';
 
   // Auth
 

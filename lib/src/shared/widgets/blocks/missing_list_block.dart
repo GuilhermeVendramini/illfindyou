@@ -60,11 +60,17 @@ class _MissingListBlockState extends State<MissingListBlock>
                 ),
               );
             } else {
-              return Text('No results');
+              return Text(
+                Strings.homeGetMissingNoResults,
+                textAlign: TextAlign.center,
+              );
             }
             break;
           case MissingState.FAIL:
-            return Text('Fail');
+            return Text(
+              Strings.homeGetMissingFail,
+              textAlign: TextAlign.center,
+            );
             break;
           case MissingState.IDLE:
           default:
