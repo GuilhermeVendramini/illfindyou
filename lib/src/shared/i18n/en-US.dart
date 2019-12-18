@@ -28,6 +28,11 @@ class Strings {
   static const String homeGetMissingNoResults =
       'Sorry, no results found. Try with another image';
 
+  // Missing
+  static const String missingContactUs = 'Contact us';
+  static const String missingContactUsMessage =
+      'If you have any information, please contact us.';
+
   // Auth
 
   // Login

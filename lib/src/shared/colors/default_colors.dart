@@ -11,4 +11,5 @@ class DefaultColors {
   static final Color green = Colors.green[300];
   static final Color grey = Colors.grey;
   static final Color amber = Colors.amber;
+  static final Color cyan = Colors.cyan;
 }
